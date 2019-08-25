@@ -163,7 +163,7 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  importLoaders: 1,
+                  importLoaders: 1, 
                   // 19-08-25 css Module use setting
                   moudles: true,
                   localIdentName: '[path][name]__[local]--[hash:base64:5]'
