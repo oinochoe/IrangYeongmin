@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import styles from './App.css';
+import classNames from 'classnames/bind';
 
-console.log(styles); // 콘솔에 무억이 출력되나요
+const cx = classNames.bind(styles);
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.box}></div>
+      <div className={cx('box', 'blue')}></div>
     );
   }
 }
