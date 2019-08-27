@@ -1,0 +1,27 @@
+$size: 100px;
+$rel: relative;
+
+@mixin place-at-center() {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.box {
+  display:block;
+  position: $rel;
+  background:black;
+  width: $size;
+  height:$size;
+  &:hover {
+    background:blue;
+  }
+
+  .box-inside {
+    background:red;
+    width:50px;
+    height:50px;
+    @include place-at-center();
+  }
+}
