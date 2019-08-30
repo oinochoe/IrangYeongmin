@@ -3731,6 +3731,7 @@ in-publish@^2.0.0:
 include-media@^1.4.9:
   version "1.4.9"
   resolved "https://registry.yarnpkg.com/include-media/-/include-media-1.4.9.tgz#d0020b7be3eb2d54868a20943595ce380e0bc43b"
+  integrity sha1-0AILe+PrLVSGiiCUNZXOOA4LxDs=
 
 indent-string@^2.1.0:
   version "2.1.0"
@@ -5803,6 +5804,7 @@ onetime@^2.0.0:
 open-color@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/open-color/-/open-color-1.7.0.tgz#f238344313ab7d8b7576f7704d69ba92ee53b51b"
+  integrity sha512-Kyl74V5gohYxajOVgIaXhvhjKtXfhwl7ddJ28HVXDkPuM8PVdaWbFPucf6qPGW6aXOMxnukw0/R1lLLyXKEffA==
   dependencies:
     lodash "^4.17.11"
     npm "^6.9.0"
