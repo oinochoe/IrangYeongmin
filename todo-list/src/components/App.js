@@ -67,18 +67,33 @@ class App extends Component {
     })
   }
 
+  // 데이터 지우기
+  handleRemove = (id) => {
+    const { todos } = this.state;
+    const index = todos.findIndex(todo => todo.id === id);
+
+    // slice로 전후 데이터를 복사하고, 우리가 찾은 index는 제외
+    this.setState({
+      todos: [
+        ...todos.slice(0, index),
+        ...todos.slice(index + 1, todos.length)
+      ]
+    });
+  }
+
   render() {
     const { input, todos } = this.state;
     const {
       handleChange,
       handleInsert,
-      handleToggle
+      handleToggle,
+      handleRemove
     } = this;
 
     return (
       <PageTemplate>
         <TodoInput onChange={handleChange} onInsert={handleInsert} value={input}/>
-        <TodoList todos={todos} onToggle={handleToggle} />
+        <TodoList todos={todos} onToggle={handleToggle} onRemove={handleRemove} />
       </PageTemplate>
     );
   }
