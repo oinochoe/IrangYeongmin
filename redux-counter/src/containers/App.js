@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CounterContainer from './CounterContainer';
 import Buttons from '../components/Button';
 import CounterListContainer from './CounterListContainer';
 import getRandomColor from '../lib/getRandomColor';

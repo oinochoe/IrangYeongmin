@@ -12,7 +12,7 @@ const Buttons = ({onCreate, onRemove}) => {
   );
 }
 
-Buttons.PropTypes = {
+Buttons.propTypes = {
   onCreate: PropTypes.func,
   onRemove: PropTypes.func
 };

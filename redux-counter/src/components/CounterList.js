@@ -2,7 +2,7 @@ import React from 'react';
 import Counter from './Counter';
 import PropTypes from 'prop-types';
 
-import './CounterList.css';
+import './CounterLIst.css';
 
 const CounterList = ({counters, onIncrement, onDecrement, onSetColor}) => {
 
