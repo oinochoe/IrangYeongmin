@@ -3,7 +3,7 @@ let postId = 1; // id의 초깃값입니다
 const posts = [
   {
     id: 1,
-    title: '제목',
+    title: '제목333333333333',
     body: '내용'
   }
 ];
