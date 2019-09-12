@@ -11,11 +11,9 @@ const {
   MONGO_URI: mongoURI
 } = process.env;
 
-mongoose.Promise = global.Promise; // Node 의 Promise를 사용하도록 설정
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }).then({
-  render() { // unexpected token . 에 대한 처리로 작성 원래는 console.log('connected to mongodb') 였음..
-    return console.log('connected to mongodb');
-  }
+mongoose.Promise = global.Promise; // Node의 Promise를 사용하도록 설정
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+  console.log('connected to mongodb');
 }).catch((e) => {
   console.error(e);
 });
