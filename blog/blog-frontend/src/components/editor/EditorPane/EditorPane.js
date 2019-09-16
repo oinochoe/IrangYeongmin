@@ -25,7 +25,7 @@ class EditorPane extends Component {
   initializeEditor = () => {
     this.codeMirror = CodeMirror(this.editor, {
       mode: 'markdown',
-      theme: 'monoakai',
+      theme: 'monokai',
       lineNumbers: true,
       lineWrapping: true
     });
