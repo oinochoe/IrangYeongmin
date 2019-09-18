@@ -7,10 +7,10 @@ import * as editorActions from 'store/modules/editor';
 class EditorPaneContainer extends Component {
 
   handleChangeInput = ({name, value}) => {
-    const { editorActions } = this.props;
-    editorActions.changeInput({name, value});
+    const { EditorActions } = this.props;
+    EditorActions.changeInput({name, value});
   }
-
+  
   render() {
     const { title, tags, markdown } = this.props;
     const { handleChangeInput } = this;
