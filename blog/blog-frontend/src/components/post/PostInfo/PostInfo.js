@@ -19,7 +19,7 @@ const PostInfo = ({publishedDdate, title, tags}) => (
           )
         }
       </div>
-      <div className={cx('date')}>{moment(publishedDdate).format('li')}</div>
+      <div className={cx('date')}>{moment(publishedDdate).format('ll')}</div>
     </div>
   </div>
 );
