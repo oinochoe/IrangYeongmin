@@ -82,7 +82,7 @@ exports.list = async (ctx) => {
       .skip((page - 1) * 10)
       .lean()
       .exec();
-    const postCount = await Post.count().exec();
+    const postCount = await Post.count(query).exec();
     const limitBodyLength = post => ({
       ...post,
       body: post.body.length < 200 ? post.body : `${post.body.slice(0, 200)}...`
