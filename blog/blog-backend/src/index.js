@@ -6,6 +6,7 @@ const bodyParser = require('koa-bodyparser');
 const mongoose = require('mongoose');
 const api = require('./api');
 const session = require('koa-session');
+const ssr = require('./ssr');
 
 const {
   PORT: port = 4000, // 값이 존재하지 않으면 기본값 4000
@@ -25,9 +26,11 @@ const router = new Router();
 
 // 라우터 설정
 router.use('/api', api.routes()); // api 라우트 적용
+router.get('/', ssr);
 
 // 라우터 적용 전에 bodyParser 적용
 app.use(bodyParser());
+app.use(ssr); // 일치하는 것이 없으면 ssr을 실행합니다.
 
 // 세션/키 적용
 const sessionConfig = {
