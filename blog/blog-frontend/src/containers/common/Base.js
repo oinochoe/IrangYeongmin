@@ -5,8 +5,12 @@ import { bindActionCreators } from 'redux';
 import * as baseActions from 'store/modules/base';
 
 class Base extends Component {
-  initialize = async () => {
-    // 로그인 상태 확인 (추후 작성)
+  initialize = () => {
+    const { BaseActions } = this.props;
+    if(localStorage.logged === "true") {
+      BaseActions.tempLogin();
+    }
+    BaseActions.checkLogin();
   }
   componentDidMount() {
     this.initialize();
