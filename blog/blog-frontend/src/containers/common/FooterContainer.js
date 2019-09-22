@@ -6,19 +6,33 @@ import * as baseActions from 'store/modules/base';
 
 class FooterContainer extends Component {
   handleLoginClick = async () => {
-    const { BaseActions } = this.props;
+    const { BaseActions, logged } = this.props;
+    if(logged) {
+      try {
+        await BaseActions.logout();
+        window.location.reload(); // 새로고침
+      } catch (e) {
+        console.log(e);
+      }
+      return;
+    }
     BaseActions.showModal('login');
+    BaseActions.initializeLoginModal();
   }
   render() {
     const { handleLoginClick } = this;
+    const { logged } = this.props;
+
     return (
-      <Footer onLoginClick={handleLoginClick} />
+      <Footer onLoginClick={handleLoginClick} logged={logged}/>
     );
   }
 }
 
 export default connect(
-  (state) => ({}), // 추후입력
+  (state) => ({
+    logged: state.base.get('logged')
+  }),
   (dispatch) => ({
     BaseActions: bindActionCreators(baseActions, dispatch)
   })
