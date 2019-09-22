@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 const api = require('./api');
 const session = require('koa-session');
 const ssr = require('./ssr');
+const path = require('path');
+const serve = require('koa-static');
+
+const staticPath = path.join(__dirname, '../../blog-frontend/build');
 
 const {
   PORT: port = 4000, // 값이 존재하지 않으면 기본값 4000
@@ -30,6 +34,7 @@ router.get('/', ssr);
 
 // 라우터 적용 전에 bodyParser 적용
 app.use(bodyParser());
+app.use(serve(staticPath)); // 주의: serve가 ssr전에 와야 합니다.
 app.use(ssr); // 일치하는 것이 없으면 ssr을 실행합니다.
 
 // 세션/키 적용

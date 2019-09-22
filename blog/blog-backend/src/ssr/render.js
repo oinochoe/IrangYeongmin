@@ -42905,7 +42905,7 @@ module.exports = function httpAdapter(config) {
     var proxy = config.proxy;
     if (!proxy && proxy !== false) {
       var proxyEnv = protocol.slice(0, -1) + '_proxy';
-      var proxyUrl = Object({"NODE_ENV":"production","PUBLIC_URL":""})[proxyEnv] || Object({"NODE_ENV":"production","PUBLIC_URL":""})[proxyEnv.toUpperCase()];
+      var proxyUrl = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[proxyEnv] || Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[proxyEnv.toUpperCase()];
       if (proxyUrl) {
         var parsedProxyUrl = url.parse(proxyUrl);
         proxy = {
@@ -43247,7 +43247,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG;
+    r = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
   }
 
   return r;
@@ -43487,7 +43487,7 @@ try {
  *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
  */
 
-exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":""})).filter(function (key) {
+exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})).filter(function (key) {
   return /^debug_/i.test(key);
 }).reduce(function (obj, key) {
   // camel-case
@@ -43497,7 +43497,7 @@ exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":"
     .replace(/_([a-z])/g, function (_, k) { return k.toUpperCase() });
 
   // coerce string value into JS value
-  var val = Object({"NODE_ENV":"production","PUBLIC_URL":""})[key];
+  var val = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[key];
   if (/^(yes|on|true|enabled)$/i.test(val)) val = true;
   else if (/^(no|off|false|disabled)$/i.test(val)) val = false;
   else if (val === 'null') val = null;
@@ -43587,9 +43587,9 @@ function save(namespaces) {
   if (null == namespaces) {
     // If you set a process.env field to null or undefined, it gets cast to the
     // string 'null' or 'undefined'. Just delete instead.
-    delete Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG;
+    delete Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
   } else {
-    Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG = namespaces;
+    Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG = namespaces;
   }
 }
 
@@ -43601,7 +43601,7 @@ function save(namespaces) {
  */
 
 function load() {
-  return Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG;
+  return Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
 }
 
 /**
@@ -43692,38 +43692,38 @@ var supportLevel = (function () {
 		return 1;
 	}
 
-	if ('CI' in Object({"NODE_ENV":"production","PUBLIC_URL":""})) {
-		if ('TRAVIS' in Object({"NODE_ENV":"production","PUBLIC_URL":""}) || Object({"NODE_ENV":"production","PUBLIC_URL":""}).CI === 'Travis') {
+	if ('CI' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
+		if ('TRAVIS' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}) || Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).CI === 'Travis') {
 			return 1;
 		}
 
 		return 0;
 	}
 
-	if ('TEAMCITY_VERSION' in Object({"NODE_ENV":"production","PUBLIC_URL":""})) {
-		return Object({"NODE_ENV":"production","PUBLIC_URL":""}).TEAMCITY_VERSION.match(/^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/) === null ? 0 : 1;
+	if ('TEAMCITY_VERSION' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
+		return Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TEAMCITY_VERSION.match(/^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/) === null ? 0 : 1;
 	}
 
-	if (/^(screen|xterm)-256(?:color)?/.test(Object({"NODE_ENV":"production","PUBLIC_URL":""}).TERM)) {
+	if (/^(screen|xterm)-256(?:color)?/.test(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM)) {
 		return 2;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"production","PUBLIC_URL":""}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM)) {
 		return 1;
 	}
 
-	if ('COLORTERM' in Object({"NODE_ENV":"production","PUBLIC_URL":""})) {
+	if ('COLORTERM' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
 		return 1;
 	}
 
-	if (Object({"NODE_ENV":"production","PUBLIC_URL":""}).TERM === 'dumb') {
+	if (Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM === 'dumb') {
 		return 0;
 	}
 
 	return 0;
 })();
 
-if (supportLevel === 0 && 'FORCE_COLOR' in Object({"NODE_ENV":"production","PUBLIC_URL":""})) {
+if (supportLevel === 0 && 'FORCE_COLOR' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
 	supportLevel = 1;
 }
 
@@ -46837,18 +46837,8 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_classnames_bind___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_classnames_bind__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_marked__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_marked__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prismjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_prismjs_themes_prism_okaidia_css__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_prismjs_themes_prism_okaidia_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_prismjs_themes_prism_okaidia_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prismjs_components_prism_bash_min_js__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_prismjs_components_prism_bash_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_prismjs_components_prism_bash_min_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prismjs_components_prism_javascript_min_js__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_prismjs_components_prism_javascript_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_prismjs_components_prism_javascript_min_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prismjs_components_prism_jsx_min_js__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_prismjs_components_prism_jsx_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_prismjs_components_prism_jsx_min_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_prismjs_components_prism_css_min_js__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_prismjs_components_prism_css_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_prismjs_components_prism_css_min_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs_themes_prism_okaidia_css__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_prismjs_themes_prism_okaidia_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_prismjs_themes_prism_okaidia_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46866,12 +46856,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // prism 관련 코드 불러오기
 
 
-// 지원할 코드 형식들을 불러옵니다.
-// http://prismjs.com/#languages-list 참조
-
-
-
-
+// 웹 브라우저일 때만 로딩
+var Prism = null;
+var isBrowser = "server" === 'browser';
+if (isBrowser) {
+  Prism = __webpack_require__(356);
+  __webpack_require__(357);
+  __webpack_require__(358);
+  __webpack_require__(359);
+  __webpack_require__(360);
+}
 
 var cx = __WEBPACK_IMPORTED_MODULE_2_classnames_bind___default.a.bind(__WEBPACK_IMPORTED_MODULE_1__MarkdownRender_scss___default.a);
 
@@ -46903,7 +46897,7 @@ var MarkdownRender = function (_Component) {
       }
       // state가 바뀌면 코드 하이라이팅
       if (prevState !== this.state.html) {
-        __WEBPACK_IMPORTED_MODULE_4_prismjs___default.a.highlightAll();
+        Prism.highlightAll();
       }
     }
   }, {
@@ -48484,6 +48478,12 @@ if (true) {
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports) {
+
+
 /* **********************************************
      Begin prism-core.js
 ********************************************** */
@@ -49455,12 +49455,6 @@ Prism.languages.js = Prism.languages.javascript;
 
 
 /***/ }),
-/* 356 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
 /* 357 */
 /***/ (function(module, exports) {
 
@@ -50064,22 +50058,10 @@ var EditorPaneContainer = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EditorPane_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__EditorPane_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_classnames_bind__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_classnames_bind___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_classnames_bind__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_codemirror_mode_javascript_javascript__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_codemirror_mode_javascript_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_codemirror_mode_javascript_javascript__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_codemirror_mode_jsx_jsx__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_codemirror_mode_jsx_jsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_codemirror_mode_jsx_jsx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_codemirror_mode_css_css__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_codemirror_mode_css_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_codemirror_mode_css_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_codemirror_mode_shell_shell__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_codemirror_mode_shell_shell___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_codemirror_mode_shell_shell__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_codemirror_lib_codemirror_css__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_codemirror_lib_codemirror_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_codemirror_lib_codemirror_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_codemirror_theme_monokai_css__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_codemirror_theme_monokai_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_codemirror_theme_monokai_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror_lib_codemirror_css__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_codemirror_lib_codemirror_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_codemirror_lib_codemirror_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_theme_monokai_css__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_theme_monokai_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_codemirror_theme_monokai_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -50092,18 +50074,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
- // 마크다운 문법 색상
-// 마크다운 내부에 들어가는 코드 색상
-
-
-
-
-
 // CodeMirror를 위한 CSS 스타일
 
 
+
+// 웹 브라우저일 때만 로딩
+var CodeMirror = null;
+var isBrowser = "server" === 'browser';
+if (isBrowser) {
+  CodeMirror = __webpack_require__(10);
+  __webpack_require__(377);
+  __webpack_require__(212);
+  __webpack_require__(379);
+  __webpack_require__(380);
+  __webpack_require__(381);
+}
 
 var cx = __WEBPACK_IMPORTED_MODULE_2_classnames_bind___default.a.bind(__WEBPACK_IMPORTED_MODULE_1__EditorPane_scss___default.a);
 
@@ -50122,7 +50107,7 @@ var EditorPane = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = EditorPane.__proto__ || Object.getPrototypeOf(EditorPane)).call.apply(_ref, [this].concat(args))), _this), _this.editor = null, _this.codeMirror = null, _this.cursor = null, _this.initializeEditor = function () {
-      _this.codeMirror = __WEBPACK_IMPORTED_MODULE_3_codemirror___default()(_this.editor, {
+      _this.codeMirror = CodeMirror(_this.editor, {
         mode: 'markdown',
         theme: 'monokai',
         lineNumbers: true, // 좌측에 라인 넘버 띄우기
@@ -50232,6 +50217,18 @@ module.exports = {
 
 /***/ }),
 /* 375 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -50239,7 +50236,7 @@ module.exports = {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(10), __webpack_require__(211), __webpack_require__(376));
+    mod(__webpack_require__(10), __webpack_require__(211), __webpack_require__(378));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "../xml/xml", "../meta"], mod);
   else // Plain browser env
@@ -51121,7 +51118,7 @@ CodeMirror.defineMIME("text/x-markdown", "markdown");
 
 
 /***/ }),
-/* 376 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -51345,7 +51342,7 @@ CodeMirror.defineMIME("text/x-markdown", "markdown");
 
 
 /***/ }),
-/* 377 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -51499,7 +51496,7 @@ CodeMirror.defineMIME("text/x-markdown", "markdown");
 
 
 /***/ }),
-/* 378 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -52336,7 +52333,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
 
 
 /***/ }),
-/* 379 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -52491,18 +52488,6 @@ CodeMirror.defineMIME('text/x-sh', 'shell');
 CodeMirror.defineMIME('application/x-sh', 'shell');
 
 });
-
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 381 */
-/***/ (function(module, exports) {
-
 
 
 /***/ }),
