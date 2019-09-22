@@ -29,6 +29,11 @@ const initialState = Map({
     remove: false,
     login: false
   }),
+  // 로그인 모달 상태
+  loginModal: Map({
+    password: '',
+    error: false
+  }),
   logged: false // 현재 로그인 상태
 });
 
