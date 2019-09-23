@@ -1,4 +1,3 @@
-
 'use strict';
 
 process.env.BABEL_ENV = 'production';
@@ -24,24 +23,14 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 function build() { // 파라미터 제거
   console.log('Creating server build...'); // 메시지 변경
-
-  const compiler = webpack(config);
+  
+  let compiler = webpack(config);
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
-      let messages;
       if (err) {
-        if (!err.message) {
-          return reject(err);
-        }
-        messages = formatWebpackMessages({
-          errors: [err.message],
-          warnings: [],
-        });
-      } else {
-        messages = formatWebpackMessages(
-          stats.toJson({ all: false, warnings: true, errors: true })
-        );
+        return reject(err);
       }
+      const messages = formatWebpackMessages(stats.toJson({}, true));
       if (messages.errors.length) {
         // Only keep the first error. Others are often indicative
         // of the same problem, but confuse the reader with noise.
@@ -64,14 +53,13 @@ function build() { // 파라미터 제거
         );
         return reject(new Error(messages.warnings.join('\n\n')));
       }
-
       return resolve({
         stats,
-        // previousFileSizes,
+        // previousFileSizes
         warnings: messages.warnings,
       });
     });
   });
 }
 
-build(); // build 호출
+build();
