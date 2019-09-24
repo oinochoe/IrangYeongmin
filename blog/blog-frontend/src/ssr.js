@@ -63,6 +63,7 @@ const render = async (ctx) => {
   }
 
   const helmet = Helmet.renderStatic();
+  
   const preloadedState = JSON.stringify(transit.toJSON(store.getState()))
                             .replace(/</g, '\\u003c');
 

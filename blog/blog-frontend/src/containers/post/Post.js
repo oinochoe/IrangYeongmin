@@ -32,6 +32,12 @@ class Post extends Component {
 
     return (
       <div>
+        { /* body 값이 있을 때만 Helmet 설정  */ body && (
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={removeMd(body).slice(0, 200)} />
+          </Helmet>)
+        }
         <PostInfo title={title} publishedDate={publishedDate} tags={tags} />
         <PostBody body={body} />
       </div>
