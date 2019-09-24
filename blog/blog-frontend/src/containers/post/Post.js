@@ -5,6 +5,8 @@ import * as postActions from 'store/modules/post';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import shouldCancel from 'lib/shouldCancel';
+import removeMd from 'remove-markdown';
+import { Helmet } from 'react-helmet';
 
 class Post extends Component {
   initialize = async () => {
