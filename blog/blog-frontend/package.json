@@ -116,7 +116,7 @@
     "extends": "react-app"
   },
   "proxy": "http://localhost:4000",
-  "homepage": "http://oinochoe.github.io/IrangYeongmin",
+  "homepage": "http://oinochoe.github.io/IrangYeongmin/blog",
   "devDependencies": {
     "gh-pages": "^2.1.1"
   }
