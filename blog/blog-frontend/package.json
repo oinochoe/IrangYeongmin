@@ -69,7 +69,9 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "build:server": "node scripts/build.server.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -113,5 +115,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:4000",
+  "homepage": "http://oinochoe.github.io/IrangYeongmin",
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
+  }
 }
