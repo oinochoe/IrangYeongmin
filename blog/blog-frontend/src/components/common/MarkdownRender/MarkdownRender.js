@@ -60,6 +60,11 @@ class MarkdownRender extends Component {
     }
   }
 
+  // mount 할때도 highlight 하도록 수정
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
   render() {
     const { html } = this.state;
 
