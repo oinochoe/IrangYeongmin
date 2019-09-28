@@ -78,7 +78,7 @@ class EditorPane extends Component {
       <div className={cx('editor-pane')}>
         <input 
           className={cx('title')} 
-          placeholder="제목을 입력하세요" 
+          placeholder="필수니까 그냥은 안되" 
           name="title"
           value={title}
           onChange={handleChange}
@@ -88,7 +88,7 @@ class EditorPane extends Component {
           <div className={cx('description')}>태그</div>
           <input 
             name="tags"
-            placeholder="태그를 입력하세요 (쉼표로 구분)"
+            placeholder="태그 입력하면 분류별로 저장할 수 있으니까 활용해"
             value={tags}
             onChange={handleChange}
           />

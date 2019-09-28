@@ -9,10 +9,10 @@ const EditorHeader = ({onGoBack, onSubmit, isEdit}) => {
   return (
     <div className={cx('editor-header')}>
       <div className={cx('back')}>
-        <Button onClick={onGoBack} theme="outline">뒤로가기</Button>
+        <Button onClick={onGoBack} theme="outline">안써!!!</Button>
       </div>
       <div className={cx('submit')}>
-        <Button onClick={onSubmit} theme="outline">{ isEdit ? '수정' : '작성'}하기</Button>
+        <Button onClick={onSubmit} theme="outline">{ isEdit ? '고칠' : '쓸'}까</Button>
       </div>
     </div>
   );

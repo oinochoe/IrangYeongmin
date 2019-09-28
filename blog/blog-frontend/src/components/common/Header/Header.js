@@ -10,7 +10,7 @@ const Header = ({postId, logged, onRemove}) => (
   <header className={cx('header')}>
     <div className={cx('header-content')}>
       <div className={cx('brand')}>
-        <Link to="/">reactblog</Link>
+        <Link to="/">이랑이와 영민이의 코드공작소</Link>
       </div>
       { logged &&
         <div className={cx('right')}>
@@ -21,7 +21,7 @@ const Header = ({postId, logged, onRemove}) => (
               <Button key="remove" theme="outline" onClick={onRemove}>삭제</Button>
             ]
           }
-          <Button theme="outline" to="/editor">새 포스트</Button>
+          <Button theme="outline" to="/editor">써라 이랑아</Button>
         </div>
       }
     </div>

@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 const NotFound = ({onGoBack}) => (
   <div className={cx('not-found')}>
     <h2>
-      존재하지 않는 페이지 입니다.
+      이랑이와 영민이의 홈을 벗어났습니다.
     </h2>
     <Button onClick={onGoBack} theme="outline">
       돌아가기

@@ -9,12 +9,12 @@ const cx = classNames.bind(styles);
 const AskRemoveModal = ({ visible, onConfirm, onCancel }) => (
   <ModalWrapper visible={visible}>
     <div className={cx('question')}>
-      <div className={cx('title')}>포스트 삭제</div>
-      <div className={cx('description')}>이 포스트를 정말로 삭제하시겠습니까?</div>
+      <div className={cx('title')}>글 지우기</div>
+      <div className={cx('description')}>이거 진짜 지울거야?</div>
     </div>
     <div className={cx('options')}>
-      <Button theme="gray" onClick={onCancel}>취소</Button>
-      <Button onClick={onConfirm}>삭제</Button>
+      <Button theme="gray" onClick={onCancel}>아냐됐어</Button>
+      <Button onClick={onConfirm}>지워버렷</Button>
     </div>
   </ModalWrapper>
 );
