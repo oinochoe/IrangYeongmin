@@ -70,8 +70,6 @@
     "build": "node scripts/build.js",
     "build:server": "node scripts/build.server.js",
     "test": "node scripts/test.js --env=jsdom",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -116,8 +114,4 @@
     "extends": "react-app"
   },
   "proxy": "http://localhost:4000",
-  "homepage": "http://oinochoe.github.io/IrangYeongmin",
-  "devDependencies": {
-    "gh-pages": "^2.1.1"
-  }
 }
