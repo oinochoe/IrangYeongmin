@@ -11,7 +11,7 @@ const ListPage = ({match}) => {
   const { page = 1, tag } = match.params;
   // title값을 page 값과 tag 값에 따라 동적으로 설정
   const title = (() => {
-    let title = 'reactblog';
+    let title = '이랑이와 영민이의 코딩공작소';
     if(tag) {
       title += ` #${tag} `;
     }
