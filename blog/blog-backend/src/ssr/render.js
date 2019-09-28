@@ -44231,7 +44231,7 @@ module.exports = function httpAdapter(config) {
     var proxy = config.proxy;
     if (!proxy && proxy !== false) {
       var proxyEnv = protocol.slice(0, -1) + '_proxy';
-      var proxyUrl = Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})[proxyEnv] || Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})[proxyEnv.toUpperCase()];
+      var proxyUrl = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[proxyEnv] || Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[proxyEnv.toUpperCase()];
       if (proxyUrl) {
         var parsedProxyUrl = url.parse(proxyUrl);
         proxy = {
@@ -44573,7 +44573,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).DEBUG;
+    r = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
   }
 
   return r;
@@ -44813,7 +44813,7 @@ try {
  *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
  */
 
-exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})).filter(function (key) {
+exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})).filter(function (key) {
   return /^debug_/i.test(key);
 }).reduce(function (obj, key) {
   // camel-case
@@ -44823,7 +44823,7 @@ exports.inspectOpts = Object.keys(Object({"NODE_ENV":"production","PUBLIC_URL":"
     .replace(/_([a-z])/g, function (_, k) { return k.toUpperCase() });
 
   // coerce string value into JS value
-  var val = Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})[key];
+  var val = Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})[key];
   if (/^(yes|on|true|enabled)$/i.test(val)) val = true;
   else if (/^(no|off|false|disabled)$/i.test(val)) val = false;
   else if (val === 'null') val = null;
@@ -44913,9 +44913,9 @@ function save(namespaces) {
   if (null == namespaces) {
     // If you set a process.env field to null or undefined, it gets cast to the
     // string 'null' or 'undefined'. Just delete instead.
-    delete Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).DEBUG;
+    delete Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
   } else {
-    Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).DEBUG = namespaces;
+    Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG = namespaces;
   }
 }
 
@@ -44927,7 +44927,7 @@ function save(namespaces) {
  */
 
 function load() {
-  return Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).DEBUG;
+  return Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).DEBUG;
 }
 
 /**
@@ -45018,38 +45018,38 @@ var supportLevel = (function () {
 		return 1;
 	}
 
-	if ('CI' in Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})) {
-		if ('TRAVIS' in Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}) || Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).CI === 'Travis') {
+	if ('CI' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
+		if ('TRAVIS' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}) || Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).CI === 'Travis') {
 			return 1;
 		}
 
 		return 0;
 	}
 
-	if ('TEAMCITY_VERSION' in Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})) {
-		return Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).TEAMCITY_VERSION.match(/^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/) === null ? 0 : 1;
+	if ('TEAMCITY_VERSION' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
+		return Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TEAMCITY_VERSION.match(/^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/) === null ? 0 : 1;
 	}
 
-	if (/^(screen|xterm)-256(?:color)?/.test(Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).TERM)) {
+	if (/^(screen|xterm)-256(?:color)?/.test(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM)) {
 		return 2;
 	}
 
-	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).TERM)) {
+	if (/^screen|^xterm|^vt100|color|ansi|cygwin|linux/i.test(Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM)) {
 		return 1;
 	}
 
-	if ('COLORTERM' in Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})) {
+	if ('COLORTERM' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
 		return 1;
 	}
 
-	if (Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"}).TERM === 'dumb') {
+	if (Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"}).TERM === 'dumb') {
 		return 0;
 	}
 
 	return 0;
 })();
 
-if (supportLevel === 0 && 'FORCE_COLOR' in Object({"NODE_ENV":"production","PUBLIC_URL":"/IrangYeongmin/blog","APP_ENV":"server"})) {
+if (supportLevel === 0 && 'FORCE_COLOR' in Object({"NODE_ENV":"production","PUBLIC_URL":"","APP_ENV":"server"})) {
 	supportLevel = 1;
 }
 
@@ -48264,6 +48264,14 @@ var MarkdownRender = function (_Component) {
       if (prevState !== this.state.html) {
         Prism.highlightAll();
       }
+    }
+
+    // mount 할때도 highlight 하도록 수정
+
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      Prism.highlightAll();
     }
   }, {
     key: 'render',
