@@ -45794,7 +45794,7 @@ var Header = function Header(_ref) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Link */],
           { to: '/' },
-          'reactblog'
+          '\uC774\uB791\uC774\uC640 \uC601\uBBFC\uC774\uC758 \uCF54\uB4DC\uACF5\uC791\uC18C'
         )
       ),
       logged && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -45814,7 +45814,7 @@ var Header = function Header(_ref) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
           { theme: 'outline', to: '/editor' },
-          '\uC0C8 \uD3EC\uC2A4\uD2B8'
+          '\uC368\uB77C \uC774\uB791\uC544'
         )
       )
     )
@@ -46366,12 +46366,12 @@ var Footer = function Footer(_ref) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Link */],
       { to: '/', className: cx('brand') },
-      'reactblog'
+      '\uD648\uC73C\uB85C\uAC08\uB798?'
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { onClick: onLoginClick, className: cx('admin-login') },
-      logged ? '로그아웃' : '로그인'
+      logged ? '나갈래' : '글써야지'
     )
   );
 };
@@ -51009,12 +51009,12 @@ var AskRemoveModal = function AskRemoveModal(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: cx('title') },
-        '\uD3EC\uC2A4\uD2B8 \uC0AD\uC81C'
+        '\uAE00 \uC9C0\uC6B0\uAE30'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: cx('description') },
-        '\uC774 \uD3EC\uC2A4\uD2B8\uB97C \uC815\uB9D0\uB85C \uC0AD\uC81C\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?'
+        '\uC774\uAC70 \uC9C4\uC9DC \uC9C0\uC6B8\uAC70\uC57C?'
       )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -51023,12 +51023,12 @@ var AskRemoveModal = function AskRemoveModal(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
         { theme: 'gray', onClick: onCancel },
-        '\uCDE8\uC18C'
+        '\uC544\uB0D0\uB410\uC5B4'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
         { onClick: onConfirm },
-        '\uC0AD\uC81C'
+        '\uC9C0\uC6CC\uBC84\uB837'
       )
     )
   );
@@ -51544,7 +51544,7 @@ var EditorPane = function (_Component) {
         { className: cx('editor-pane') },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
           className: cx('title'),
-          placeholder: '\uC81C\uBAA9\uC744 \uC785\uB825\uD558\uC138\uC694',
+          placeholder: '\uD544\uC218\uB2C8\uAE4C \uADF8\uB0E5\uC740 \uC548\uB418',
           name: 'title',
           value: title,
           onChange: handleChange
@@ -51562,7 +51562,7 @@ var EditorPane = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
             name: 'tags',
-            placeholder: '\uD0DC\uADF8\uB97C \uC785\uB825\uD558\uC138\uC694 (\uC27C\uD45C\uB85C \uAD6C\uBD84)',
+            placeholder: '\uD0DC\uADF8 \uC785\uB825\uD558\uBA74 \uBD84\uB958\uBCC4\uB85C \uC800\uC7A5\uD560 \uC218 \uC788\uC73C\uB2C8\uAE4C \uD65C\uC6A9\uD574',
             value: tags,
             onChange: handleChange
           })
@@ -54184,7 +54184,7 @@ var EditorHeader = function EditorHeader(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_3_components_common_Button__["a" /* default */],
         { onClick: onGoBack, theme: 'outline' },
-        '\uB4A4\uB85C\uAC00\uAE30'
+        '\uC548\uC368!!!'
       )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54193,8 +54193,8 @@ var EditorHeader = function EditorHeader(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_3_components_common_Button__["a" /* default */],
         { onClick: onSubmit, theme: 'outline' },
-        isEdit ? '수정' : '작성',
-        '\uD558\uAE30'
+        isEdit ? '고칠' : '쓸',
+        '\uAE4C'
       )
     )
   );
@@ -54271,7 +54271,7 @@ var NotFound = function NotFound(_ref) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h2',
       null,
-      '\uC874\uC7AC\uD558\uC9C0 \uC54A\uB294 \uD398\uC774\uC9C0 \uC785\uB2C8\uB2E4.'
+      '\uC774\uB791\uC774\uC640 \uC601\uBBFC\uC774\uC758 \uD648\uC744 \uBC97\uC5B4\uB0AC\uC2B5\uB2C8\uB2E4.'
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_3_components_common_Button__["a" /* default */],
@@ -58768,18 +58768,18 @@ var LoginModal = function LoginModal(_ref) {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: cx('description') },
-        '\uAD00\uB9AC\uC790 \uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694.'
+        '\uBE44\uBC88 \uC785\uB825\uD558\uB77C'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { autoFocus: true, type: 'password', placeholder: '\uBE44\uBC00\uBC88\uD638 \uC785\uB825', value: password, onChange: onChange, onKeyPress: onKeyPress }),
       error && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: cx('error') },
-        '\uB85C\uADF8\uC778 \uC2E4\uD328'
+        '\uC880 \uC798 \uC678\uC6CC \uC81C\uBC1C'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: cx('login'), onClick: onLogin },
-        '\uB85C\uADF8\uC778'
+        '\uB4E4\uC5B4\uAC00\uAE30'
       )
     )
   );
