@@ -22,7 +22,7 @@
     "eslint-plugin-import": "^2.12.0"
   },
   "scripts": {
-    "start": "NODE_PATH=src node forever src",
+    "start": "NODE_PATH=src forever node src",
     "start:dev": "NODE_PATH=src nodemon --watch src/ src/index.js"
   }
 }
