@@ -1,4 +1,4 @@
-@import 'utils';
+@import "utils";
 
 .header {
   background: $oc-blue-6;
@@ -8,7 +8,7 @@
     margin: 0 auto; // 중앙 정렬
     padding-left: 3rem;
     padding-right: 3rem;
-    
+
     // 내부 아이템 세로 중앙 정렬
     display: flex;
     align-items: center;
@@ -27,6 +27,14 @@
       color: white;
       font-size: 1.5rem;
       font-weight: 600;
+    }
+
+    .outlink {
+      // 외부링크
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-left: 2rem;
     }
 
     .right {

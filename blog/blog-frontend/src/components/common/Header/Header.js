@@ -11,13 +11,14 @@ const Header = ({ postId, logged, onRemove }) => (
     <div className={cx("header-content")}>
       <div className={cx("brand")}>
         <Link to="/">이랑이와 영민이의 코드공작소</Link>
-        <Link
-          to="https://oinochoe.github.io/interactiveweb/irym/"
-          target="_blank"
-        >
-          이랑이와 영민이의 홈
-        </Link>
       </div>
+      <a
+        className={cx("outlink")}
+        target="_blank"
+        href="https://oinochoe.github.io/interactiveweb/irym/"
+      >
+        이랑&amp;영민 홈 가기
+      </a>
       {logged && (
         <div className={cx("right")}>
           {// flex를 유지하려고 배열 형태로 렌더링합니다.
