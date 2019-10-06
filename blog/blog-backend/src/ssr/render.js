@@ -45577,7 +45577,7 @@ var ListPage = function ListPage(_ref) {
   // title값을 page 값과 tag 값에 따라 동적으로 설정
 
   var title = function () {
-    var title = 'reactblog';
+    var title = '이랑이와 영민이의 코딩공작소';
     if (tag) {
       title += ' #' + tag + ' ';
     }
@@ -45783,38 +45783,46 @@ var Header = function Header(_ref) {
       logged = _ref.logged,
       onRemove = _ref.onRemove;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'header',
-    { className: cx('header') },
+    "header",
+    { className: cx("header") },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: cx('header-content') },
+      "div",
+      { className: cx("header-content") },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: cx('brand') },
+        "div",
+        { className: cx("brand") },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Link */],
-          { to: '/' },
-          '\uC774\uB791\uC774\uC640 \uC601\uBBFC\uC774\uC758 \uCF54\uB4DC\uACF5\uC791\uC18C'
+          { to: "/" },
+          "\uC774\uB791\uC774\uC640 \uC601\uBBFC\uC774\uC758 \uCF54\uB4DC\uACF5\uC791\uC18C"
         )
       ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "a",
+        {
+          className: cx("outlink"),
+          target: "_blank",
+          href: "https://oinochoe.github.io/interactiveweb/irym/"
+        },
+        "\uC774\uB791&\uC601\uBBFC \uD648 \uAC00\uAE30"
+      ),
       logged && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: cx('right') },
-
+        "div",
+        { className: cx("right") },
         // flex를 유지하려고 배열 형태로 렌더링합니다.
         postId && [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
-          { key: 'edit', theme: 'outline', to: '/editor?id=' + postId },
-          '\uC218\uC815'
+          { key: "edit", theme: "outline", to: "/editor?id=" + postId },
+          "\uC218\uC815"
         ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
-          { key: 'remove', theme: 'outline', onClick: onRemove },
-          '\uC0AD\uC81C'
+          { key: "remove", theme: "outline", onClick: onRemove },
+          "\uC0AD\uC81C"
         )],
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_4_components_common_Button__["a" /* default */],
-          { theme: 'outline', to: '/editor' },
-          '\uC368\uB77C \uC774\uB791\uC544'
+          { theme: "outline", to: "/editor" },
+          "\uC368\uB77C \uC774\uB791\uC544"
         )
       )
     )
@@ -45831,6 +45839,7 @@ module.exports = {
 	"header": "Header__header___3TyFy",
 	"header-content": "Header__header-content___2E6J5",
 	"brand": "Header__brand___20CLK",
+	"outlink": "Header__outlink___3VQWX",
 	"right": "Header__right___apWRW"
 };
 
@@ -48087,38 +48096,37 @@ var Post = function (_Component) {
 var cx = __WEBPACK_IMPORTED_MODULE_2_classnames_bind___default.a.bind(__WEBPACK_IMPORTED_MODULE_1__PostInfo_scss___default.a);
 
 var PostInfo = function PostInfo(_ref) {
-  var publishedDdate = _ref.publishedDdate,
+  var publishedDate = _ref.publishedDate,
       title = _ref.title,
       tags = _ref.tags;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    { className: cx('post-info') },
+    "div",
+    { className: cx("post-info") },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: cx('info') },
+      "div",
+      { className: cx("info") },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'h1',
+        "h1",
         null,
         title
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: cx('tags') },
-
+        "div",
+        { className: cx("tags") },
         // tags가 존재할 때만 map을 실행합니다.
         tags && tags.map(function (tag) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* Link */],
-            { key: tag, to: '/tag/' + tag },
-            '#',
+            { key: tag, to: "/tag/" + tag },
+            "#",
             tag
           );
         })
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: cx('date') },
-        __WEBPACK_IMPORTED_MODULE_4_moment___default()(publishedDdate).format('ll')
+        "div",
+        { className: cx("date") },
+        __WEBPACK_IMPORTED_MODULE_4_moment___default()(publishedDate).format("ll")
       )
     )
   );
