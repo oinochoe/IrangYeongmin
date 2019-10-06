@@ -20,7 +20,7 @@ const PostInfo = ({ publishedDate, title, tags }) => (
             </Link>
           ))}
       </div>
-      <div className={cx("date")}>{moment(publishedDate)}</div>
+      <div className={cx("date")}>{moment(publishedDate).format("ll")}</div>
     </div>
   </div>
 );
