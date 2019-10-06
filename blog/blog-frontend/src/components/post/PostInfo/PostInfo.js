@@ -7,7 +7,7 @@ import moment from "moment";
 
 const cx = classNames.bind(styles);
 
-const PostInfo = ({ publishedDdate, title, tags }) => (
+const PostInfo = ({ publishedDate, title, tags }) => (
   <div className={cx("post-info")}>
     <div className={cx("info")}>
       <h1>{title}</h1>
@@ -21,7 +21,7 @@ const PostInfo = ({ publishedDdate, title, tags }) => (
           ))}
       </div>
       {/* <div className={cx("date")}>{moment(publishedDdate)}</div> */}
-      <div className={cx("date")}>{publishedDdate}</div>
+      <div className={cx("date")}>{publishedDate}</div>
     </div>
   </div>
 );
