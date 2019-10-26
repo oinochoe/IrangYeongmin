@@ -16,13 +16,13 @@ const app = new Koa();
 const router = new Router();
 
 const {
-  PORT: port = 4000, // 값이 존재하지 않는다면 4000을 기본값으로 사용
+  PORT: port = 80, // 값이 존재하지 않는다면 80을 기본값으로 사용
   MONGO_URI: mongoURI,
   COOKIE_SIGN_KEY: signKey
 } = process.env;
 
 mongoose.Promise = global.Promise; // Node의 Promise를 사용하도록 설정
-mongoose.connect(mongoURI).then(() => {
+mongoose.connect(mongoURI,{useNewUrlParser: true } ).then(() => {
   console.log('connected to mongodb');
 }).catch((e) => {
   console.error(e);
