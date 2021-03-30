@@ -1,2 +1,4 @@
 blog/blog-backend/src/ssr/render.js
 blog/blog-backend/.env
+yarn.lock
+package-lock.json
